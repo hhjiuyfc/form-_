@@ -1,0 +1,99 @@
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    72deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(113, 65, 149, 1) 11%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* 垂直方向にパディングボックスに合わせる必要がある場合は、内容を切り取ります。スクロールバーは表示されません。 */
+  overflow-y: hidden;
+}
+
+.formContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContainer form {
+  background-color: rgb(226, 219, 219);
+  /*親(ブラウザーの70%) */
+  width: 70%;
+  /* 最大450pxまで、それ以上大きくならない  */
+  max-width: 450px;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #dfdfdf;
+  box-shadow: 30px 42px 33px -42px rgba(0, 0, 0, 0.8);
+}
+.formContainer form h1 {
+  text-align: center;
+}
+
+.uiForm {
+  display: flex;
+  /* 主軸交差軸が90度回転(rowと逆) */
+  flex-direction: column;
+  align-items: center;
+  /* 各アイテムは、配置コンテナーの中で主軸方向(columnで逆)に均等に配置されます。隣接するアイテム同士の間隔、最初のアイテムの前の余白、最後のアイテムの後の余白は、まったく同じ幅になります。 */
+  justify-content: space-evenly;
+  height: 400px;
+}
+.formField {
+  /* 親要素に  display: flex;をつけてcolumnで縦に */
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.formField input {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  /* outline: none; */
+}
+/* :focus は CSS の擬似クラスで、フォーカスを持っている (フォームの input のような) 要素を表す */
+.formField input:focus {
+  outline: none;
+  font-size: 20px;
+}
+.formField label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #798eed;
+  padding: 10px 40px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  /* hoverの親要素にtransitionを記載するとふわっとアニメーション */
+  transition: all 0.5s;
+}
+
+button:hover {
+  background-color: #2a2a8a;
+}
+
+.errorMsg {
+  color: red;
+  margin: 0;
+  /* 指定した個別の要素の位置を調整する */
+  align-self: flex-start;
+}
+
+.msgOk {
+  color: teal;
+  margin-top: 15px;
+}
